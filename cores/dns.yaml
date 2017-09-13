@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: neo4j
+  labels:
+    app: neo4j
+    component: core
+spec:
+  clusterIP: None
+  ports:
+    - port: 7474
+      targetPort: 7474
+  selector:
+    app: neo4j
+    component: core
