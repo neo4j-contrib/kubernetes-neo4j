@@ -199,6 +199,11 @@ $ kubectl exec neo4j-core-0 -- bin/cypher-shell --format verbose "CALL dbms.clus
 
 Success!
 
+== Security
+
+By default we've disabled security to make it easier to play around with the cluster.
+Once you're ready to deploy to production you'll want to protect your servers, which you can do by removing the `NEO4J_dbms_security_auth__enabled` environment variable in https://github.com/neo4j-contrib/kubernetes-neo4j/blob/master/cores/statefulset.yaml#L23[]`cores/statefulset.yaml`^] and https://github.com/neo4j-contrib/kubernetes-neo4j/blob/master/read-replicas/deployment.yaml#L23[`read-replicas/deployment.yaml`^]
+
 == Running Neo4j on Helm
 
 https://github.com/kubernetes/helm[Helm^] is a tool that streamlines installing and managing Kubernetes applications.
