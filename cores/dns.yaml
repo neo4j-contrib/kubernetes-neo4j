@@ -10,6 +10,10 @@ spec:
   ports:
     - port: 7474
       targetPort: 7474
+      name: browser
+    - port: 6362
+      targetPort: 6362
+      name: backup
   selector:
     app: neo4j
     component: core
