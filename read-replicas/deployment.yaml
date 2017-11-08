@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: neo4j
-        image: "neo4j:3.2.3-enterprise"
+        image: "neo4j:3.3.0-enterprise"
         imagePullPolicy: "IfNotPresent"
         env:
           - name: NEO4J_dbms_mode
@@ -26,6 +26,8 @@ spec:
             value: DNS
           - name: NEO4J_causal__clustering_initial__discovery__members
             value: "neo4j.default.svc.cluster.local:5000"
+          - name: NEO4J_ACCEPT_LICENSE_AGREEMENT
+            value: "yes"
         command:
           - "/bin/bash"
           - "-ecx"
