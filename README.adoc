@@ -199,6 +199,23 @@ $ kubectl exec neo4j-core-0 -- bin/cypher-shell --format verbose "CALL dbms.clus
 
 Success!
 
+== Neo4j Browser
+
+If we want to interact with the machines in the cluster using the Neo4j browser one way to do this is to use port forwarding.
+Run the following command:
+
+```
+kubectl port-forward neo4j-core-0 8474:7447 8687:7687
+```
+
+This will forward ports on the neo4j-core-0 pod:
+
+* `7474` -> `8474` on your machine
+* `7687` -> `8687` on your machine
+
+Open `http://localhost:8474` and type `:server connect` if it doesn't do it automatically.
+We then need to update the `Host` field to be `bolt://localhost:8687` and fill in a username and password if applicable.
+
 == Security
 
 By default we've disabled security to make it easier to play around with the cluster.
