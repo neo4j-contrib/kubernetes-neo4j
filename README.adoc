@@ -205,7 +205,7 @@ If we want to interact with the machines in the cluster using the Neo4j browser 
 Run the following command:
 
 ```
-kubectl port-forward neo4j-core-0 8474:7447 8687:7687
+kubectl port-forward neo4j-core-0 8474:7474 8687:7687
 ```
 
 This will forward ports on the neo4j-core-0 pod:
