@@ -5,6 +5,7 @@ metadata:
 spec:
   serviceName: neo4j
   replicas: 3
+  podManagementPolicy: Parallel
   template:
     metadata:
       labels:
@@ -37,6 +38,16 @@ spec:
             export NEO4J_causal__clustering_transaction__advertised__address=$(hostname -f):6000
             export NEO4J_causal__clustering_raft__advertised__address=$(hostname -f):7000
             exec /docker-entrypoint.sh "neo4j"
+        readinessProbe:
+          initialDelaySeconds: 60
+          httpGet:
+            path: /db/manage/server/core/available
+            port: 7474
+        livenessProbe:
+          initialDelaySeconds: 60
+          httpGet:
+            path: /db/manage/server/core/available
+            port: 7474
         ports:
         - containerPort: 5000
           name: discovery
