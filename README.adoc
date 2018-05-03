@@ -226,14 +226,13 @@ Once you're ready to deploy to production you'll want to protect your servers, w
 https://github.com/kubernetes/helm[Helm^] is a tool that streamlines installing and managing Kubernetes applications.
 You can think of it as an App Store for Kubernetes.
 
-We created a Neo4j Helm package and it was recently accepted into the Helm incubator.
+We created a Neo4j Helm package.
 
 You can deploy Neo4j on Kubernetes using the Helm package by running the following commands:
 
 ```
-helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
-helm install incubator/neo4j --name neo-helm
+helm install stable/neo4j
 ```
 
 This will create a 3 core cluster.
-You can read more about this in our blog post.
+Find out more about the https://github.com/kubernetes/charts/tree/master/stable/neo4j[Neo4j Helm Chart^].
