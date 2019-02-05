@@ -1,5 +1,11 @@
 = Neo4j on Kubernetes
 
+[NOTE]
+====
+This repo is a bit out of date, but you can find a generic helm chart here: https://github.com/helm/charts/tree/master/stable/neo4j (that has to go through various tests for acceptance) and you can find the google kubernetes marketplace repo here https://github.com/neo-technology/neo4j-google-k8s-marketplace/
+====
+
+
 This repository contains a set of scripts that you can use to deploy a Neo4j cluster on Kubernetes.
 It will work for Neo4j versions 3.1 and higher.
 
