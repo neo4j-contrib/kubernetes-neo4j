@@ -2,7 +2,7 @@
 
 [NOTE]
 ====
-This repo is a bit out of date, but you can find a generic helm chart that has to go through various tests for acceptance at the following URI: https://github.com/helm/charts/tree/master/stable/neo4
+This repo is a bit out of date, but you can find a generic helm chart that has to go through various tests for acceptance at the following URI: https://github.com/helm/charts/tree/master/stable/neo4j
 
 You can also can find the google kubernetes marketplace repo here https://github.com/neo-technology/neo4j-google-k8s-marketplace/
 ====
