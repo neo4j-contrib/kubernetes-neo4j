@@ -25,7 +25,7 @@ spec:
           - name: NEO4J_causal__clustering_discovery__type
             value: DNS
           - name: NEO4J_causal__clustering_initial__discovery__members
-            value: "neo4j.default.svc.cluster.local:5000"
+            value: "neo4j:5000"
           - name: NEO4J_ACCEPT_LICENSE_AGREEMENT
             value: "yes"
         command:
@@ -35,6 +35,16 @@ spec:
             export NEO4J_dbms_connectors_default__advertised__address=$(hostname -f)
             export NEO4J_causal__clustering_transaction__advertised__address=$(hostname -f):6000
             exec /docker-entrypoint.sh "neo4j"
+        readinessProbe:
+          initialDelaySeconds: 60
+          httpGet:
+            path: /db/manage/server/read-replica/available
+            port: 7474
+        livenessProbe:
+          initialDelaySeconds: 60
+          httpGet:
+            path: /db/manage/server/read-replica/available
+            port: 7474
         ports:
         - containerPort: 7474
           name: browser

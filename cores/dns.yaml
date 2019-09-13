@@ -5,8 +5,11 @@ metadata:
   labels:
     app: neo4j
     component: core
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
 spec:
   clusterIP: None
+  publishNotReadyAddresses: true
   ports:
     - port: 7474
       targetPort: 7474
